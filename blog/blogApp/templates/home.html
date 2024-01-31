@@ -1,1 +1,21 @@
-<h2>Hello Pro..</h2>
+{% extends 'base.html' %} 
+{% block title %}
+   Home
+{% endblock %} 
+
+{% block content %}
+  <br />
+  <div class="container">
+    <h2>Post</h2>
+
+    <ul>
+      {% for post in object_list %}
+        <li>
+          <a href="{% url 'artical-detail' post.id %}">{{ post.title }}</a> -- {{ post.author }}
+          <br />
+          {{ post.body }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}
